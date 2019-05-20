@@ -1,4 +1,4 @@
-import { queryTableData, queryModifyAuth, queryChangeType, queryGetQuotaInfo, queryModifyQuota, queryChangeDefaultDay } from '@/api/FacilityImpower'
+import { queryTableData, queryModifyAuth, queryChangeType, queryGetQuotaInfo, queryModifyQuota, queryChangeDefaultDay, queryDownloadLicense } from '@/api/FacilityImpower'
 
 export default {
   actions: {

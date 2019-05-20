@@ -33,7 +33,7 @@ export default [
         path: 'impowerSurvey',
         component: () => import('@/views/impowerSurvey/ImpowerSurvey.vue'),
         name: 'ImpowerSurvey',
-        meta: { title: '授权概览', icon: 'dashboard', noCache: false }
+        meta: { title: '设备状态', icon: 'dashboard', noCache: false }
       },
       {
         path: 'facilityImpower',
@@ -45,6 +45,12 @@ export default [
         path: 'testFacility',
         component: () => import('@/views/testFacility/TestFacility.vue'),
         name: 'TestFacility',
+        meta: { title: '测试设备', icon: 'dashboard', noCache: false }
+      },
+      {
+        path: 'facilityMap',
+        component: () => import('@/views/facilityMap/FacilityMap.vue'),
+        name: 'facilityMap',
         meta: { title: '测试设备', icon: 'dashboard', noCache: false }
       }
     ]

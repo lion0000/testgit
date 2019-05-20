@@ -42,3 +42,10 @@ export const queryChangeDefaultDay = (params) => {
     method: 'post'
   })
 }
+export const queryDownloadLicense = (params) => {
+  return request.request({
+    url: '/Device/DownloadLicenseByUrl',
+    params,
+    method: 'get'
+  })
+}

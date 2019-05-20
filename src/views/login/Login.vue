@@ -1,5 +1,5 @@
 <template>
-    <div class="login-container">
+    <div class="login-container" @keyup.13="loginFn">
         <div class="from-wrapper-outside"></div>
         <div class="login-from-wrapper">
             <div class="login-from-inner">
@@ -14,7 +14,7 @@
                     <el-form-item>
                         <el-row>
                           <el-col>
-                            <el-button type="primary" @click="loginFn" :style="{width: '100%'}">登录</el-button>
+                            <el-button v-loading="loading" type="primary" @click="loginFn" :style="{width: '100%'}">登录</el-button>
                           </el-col>
                         </el-row>
                     </el-form-item>
@@ -29,6 +29,7 @@ export default {
   name: 'Login',
   data () {
     return {
+      loading: false,
       loginFromData: {},
       rules: {
         name: [{ required: true, message: '用户名不能为空', trigger: 'blur' }],
@@ -41,15 +42,25 @@ export default {
       'LoginFun'
     ]),
     loginFn () {
+      this.loading = true
       this.$refs['loginFrom'].validate((valid) => {
         if (valid) {
           this.$store.dispatch('LoginFun', this.loginFromData).then(() => {
-            this.loading = false
             this.$router.push({ path: this.redirect || '/' })
-          }).catch(() => {
             this.loading = false
+            this.$message({
+              message: '登录成功',
+              type: 'success'
+            })
+          }).catch((e) => {
+            this.loading = false
+            this.$message({
+              message: e.data.message,
+              type: 'error'
+            })
           })
         } else {
+          this.loading = false
           this.$message({
             message: '请输入用户名及密码',
             type: 'warning'

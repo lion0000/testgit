@@ -1,17 +1,17 @@
 <template>
     <div class="layout-wrapper">
-        <el-container>
+        <el-container style="height:100%;">
           <!-- <el-header class="padder-no">
             <navbar/>
           </el-header> -->
-          <el-container>
+          <el-container style="height:100%;">
             <el-aside :width="asideWidth" :style="{backgroundColor: '#333',transition: '.5s'}">
               <sidebar/>
             </el-aside>
-            <el-container style="border-top: 1px solid #d8dce5;">
-              <el-main class="padder-no flex-main-wrapper" style="overflow: hidden;">
+            <el-container style="height:100%;border-top: 1px solid #d8dce5;">
+              <el-main class="padder-no flex-main-wrapper" style="overflow: hidden;height:100%;">
                 <!-- <tagbar/> -->
-                <app-container style="overflow: hidden;padding: 20px;"/>
+                <app-container style="overflow: hidden;padding: 20px;height:100%;"/>
               </el-main>
               <!-- <el-footer class="padder-no" style="height:50px;">
                 <footerbar/>
@@ -38,11 +38,11 @@ export default {
     }
   },
   mounted: function () {
-    this.queryMenuFun()
+    // this.queryMenuFun()
   },
   methods: {
     ...mapActions([
-      'queryMenuFun'
+      // 'queryMenuFun'
     ])
   }
 }

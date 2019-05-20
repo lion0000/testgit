@@ -27,7 +27,6 @@ const user = {
       const userName = userInfo.name.trim()
       return new Promise((resolve, reject) => {
         loginFn(userName, userInfo.password).then(response => {
-          console.log(response)
           const data = response.data
           if (data.state === 0) {
             // commit('SET_TOKEN', data.token)
@@ -38,7 +37,7 @@ const user = {
             setToken(data.data.TokenInfo.Token)
             resolve()
           } else {
-
+            reject(response)
           }
         }).catch(error => {
           reject(error)

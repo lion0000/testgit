@@ -2,16 +2,22 @@
   <el-menu
     :default-active="onRoutes"
     :collapse="isCollapse"
-    class="menu"
-    active-text-color="#333">
+    class="menu">
     <div class="page_logo"></div>
     <sidebar-item v-for='item in menuArray' :key="item.text" :item='item' ></sidebar-item>
   </el-menu>
 </template>
 <script>
 import SidebarItem from './SidebarItem.vue'
+import axios from 'axios'
+
 export default {
   name: 'Sidebar',
+  data () {
+    return {
+      menuArray: []
+    }
+  },
   components: {
     SidebarItem
   },
@@ -19,12 +25,19 @@ export default {
     isCollapse () {
       return !this.$store.state.sideBarOpen
     },
-    menuArray () {
-      return this.$store.state.menu.menuList
-    },
+    // menuArray () {
+    //   return this.$store.state.menu.menuList
+    // },
     onRoutes () {
       return this.$route.path
     }
+  },
+  created () {
+    axios.get('../../menu.json').then(response => {
+      this.menuArray = response.data.menuArray
+    }, response => {
+      // error callback
+    })
   }
 }
 </script>

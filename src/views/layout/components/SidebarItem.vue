@@ -53,9 +53,18 @@ export default {
         >div.icon3{
             background: url('../../../assets/icon3_1.png') no-repeat
         }
+        >div.icon4{
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            background: url('../../../assets/icon4_1.png') no-repeat center center / 100%
+        }
+
     }
-    .link-menu>li:hover,.link-menu>li:focus{
+    .link-menu>li:hover{
         background-color: #61DAA5;
+    }
+    .link-menu>li:focus{
+        background-color: #333;
     }
     .link-menu.router-link-active>li{
         background-color: #61DAA5;
@@ -68,6 +77,9 @@ export default {
         }
         >div.icon3{
             background: url('../../../assets/icon3_0.png') no-repeat
+        }
+        >div.icon4{
+            background: url('../../../assets/icon4_0.png') no-repeat center center / 100%
         }
     }
     .link-menu>li>div{

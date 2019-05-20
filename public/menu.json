@@ -1,7 +1,8 @@
 {
-    "employees": [
-    { "firstName":"Bill" , "lastName":"Gates" },
-    { "firstName":"George" , "lastName":"Bush" },
-    { "firstName":"Thomas" , "lastName":"Carter" }
+    "menuArray": [
+        { "text":"设备状态" , "href":"impowerSurvey","class":"icon1","leaf":"true" },
+        { "text":"设备授权" , "href":"facilityImpower","class":"icon2","leaf":"true" },
+        { "text":"测试设备" , "href":"testFacility","class":"icon3","leaf":"true" },
+        { "text":"设备地图" , "href":"facilityMap","class":"icon4","leaf":"true" }
     ]
-    }
+}
